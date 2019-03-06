@@ -1,0 +1,138 @@
+// Instructor(s)
+// ======================================
+
+.instructor {
+  overflow: hidden;
+
+  .section__headings {
+    margin: 0 0 $gutter-width * 1.5;
+  }
+
+  .section__heading,
+  .section__subheading {
+    max-width: 100%;
+  }
+
+  .owl-carousel {
+
+    .owl-item {
+
+      img {
+        display: inline-block;
+        width: auto;
+      }
+    }
+  }
+}
+
+.instructor__container {
+  @include make-container;
+}
+
+.instructor__list {
+
+  &.owl-carousel {
+
+    .owl-stage-outer {
+      overflow: visible;
+    }
+
+    .owl-item {
+      padding: 0;
+      visibility: hidden;
+
+      &.active {
+        visibility: visible;
+      }
+    }
+
+    .owl-nav {
+      top: 45%;
+    }
+
+    .owl-prev {
+      left: $gutter-width * -1.5;
+    }
+
+    .owl-next {
+      right: $gutter-width * -1.5;
+    }
+  }
+}
+
+.instructor__profile {
+  @include make-row();
+}
+
+.instructor__bio {
+  @include screen-lg-min {
+    @include make-col(7, false);
+
+    padding-right: $gutter-width * 2;
+  }
+  @include make-col(12);
+}
+
+.instructor__avatar {
+  @include screen-lg-min {
+    @include make-col(5, false);
+  }
+  @include make-col(12, false);
+
+  position: relative;
+  padding: 1rem;
+}
+
+.instructor__avatar-img {
+  display: block;
+  max-width: 275px;
+  margin: 0;
+  box-shadow: $shadow-menu;
+
+  @include screen-sm-min {
+    max-width: 350px;
+  }
+
+  @include screen-md-min {
+    max-width: 400px;
+  }
+
+  @include screen-xl-min {
+    max-width: 475px;
+  }
+
+}
+
+.instructor__details {
+  display: block;
+  width: 100%;
+  padding-top: 1rem;
+  font-size: 1rem;
+  z-index: z-index(element--foreground);
+}
+
+.instructor__name,
+.instructor__title,
+.instructor__email {
+  display: block;
+  font-family: $heading__font-family;
+  font-size: modular-scale(0);
+  line-height: normal;
+}
+
+.instructor__name {
+  margin: 0;
+}
+
+.instructor__title {
+  margin: 0;
+  font-weight: 400;
+}
+
+.instructor__email {
+  text-decoration: none;
+
+  .fa {
+    margin-right: $gutter-width / 4;
+  }
+}

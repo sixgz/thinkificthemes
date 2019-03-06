@@ -1,0 +1,100 @@
+// Course Categories
+// ======================================
+
+.course-categories__container {
+  @include make-container;
+}
+
+.course-category__list {
+  @include make-row(true);
+  @include justify-content(center);
+}
+
+.course-category__list-item {
+  @include screen-md-min {
+    @include make-col(6);
+    max-width: 479px;
+  }
+  @include make-col(12);
+
+  padding-bottom: $gutter-width;
+
+  &:active,
+  &:focus,
+  &:hover {
+
+    .course-category-card__img-container {
+
+      &:before {
+        @include transition(opacity 400ms ease);
+
+        opacity: 0.8;
+      }
+    }
+  }
+}
+
+.course-category-card {
+  @include card;
+
+  &:focus,
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+.course-category-card__img-container {
+
+  &:before {
+    @include transition(opacity 400ms ease);
+
+    display: block;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: $interface__background-color--active;
+    content: "";
+    opacity: 0;
+  }
+
+  .course-category-card__img {
+    width: 100%;
+    height: 250px;
+    display: block;
+    margin: 0 auto;
+  }
+}
+
+.course-category-card__details {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  padding: 4rem;
+
+  h3,
+  h4 {
+    @include transition(color 400ms ease);
+  }
+
+  h3 {
+    @include screen-md-min {
+      font-size: modular-scale(3);
+    }
+    margin: 0;
+    font-size: modular-scale(2);
+  }
+
+  h4 {
+    @include transition(color 400ms ease);
+
+    padding-top: $gutter-width / 4;
+  }
+
+  .button {
+    margin-top: $gutter-width;
+  }
+}

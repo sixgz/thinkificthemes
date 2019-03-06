@@ -1,0 +1,63 @@
+<nav class="header__nav hidden-print
+{% if site.current_user.signed_in %}
+ user-signed-in
+{% endif %}
+{% if page.product_is_course or page.product_is_bundle %}
+ header__nav--has-cta
+{% endif %}">
+  <ul>
+    {% include 'header_links' %}
+    {% include 'header_default_links' %}
+    {% if site.current_user.signed_in %}
+      <li class="header__nav-item header__nav-item--default">
+        <a href="{{ site.current_user.account_url }}">
+          {{ 'liquid.partials.header_with_links.link_my_account' | translate }}
+        </a>
+      </li>
+      {% if site.current_user.is_site_owner or site.current_user.is_site_admin or site.current_user.is_thinkific_system %}
+        <li class="header__nav-item header__nav-item--default">
+          <a href="{{ site.dashboard_url }}">
+            {{ 'liquid.partials.header_user_menu.link_admin' | translate }}
+          </a>
+        </li>
+      {% else %}
+        {% if site.current_user.is_course_admin %}
+          <li class="header__nav-item header__nav-item--default">
+            <a href="{{ site.course_administrator_dashboard_url }}">
+              {{ 'liquid.partials.header_user_menu.link_admin' | translate }}
+            </a>
+          </li>
+        {% endif %}
+      {% endif %}
+      {% if site.current_user.is_affiliate %}
+        <li class="header__nav-item header__nav-item--default">
+          <a href="{{ site.affiliate_dashboard_url }}">
+            {{ 'liquid.partials.header_user_menu.link_affiliate' | translate }}
+          </a>
+        </li>
+      {% endif %}
+      <li class="header__nav-item header__nav-item--default">
+        <a href="mailto:{{ site.support_email }}" target="_blank">
+          {{ 'liquid.partials.header_with_links.link_support' | translate }}
+        </a>
+      </li>
+      <li class="header__nav-item header__nav-item--default">
+        <a href="{{ site.sign_out_url }}">
+          {{ 'liquid.partials.header_with_links.link_sign_out' | translate }}
+        </a>
+      </li>
+    {% else %}
+      <li class="header__nav-item header__nav-item--default header__nav-sign-in">
+        <a href='{{ site.sign_in_url }}'>
+          {{ 'liquid.partials.header_with_links.link_sign_in' | translate }}
+        </a>
+      </li>
+    {% endif %}
+  </ul>
+</nav>
+<a class="header__mobile-button hidden-print" aria-expanded="true" tabindex="0">
+  <span class="header__mobile-button__toggle-icon">
+    <span>toggle menu</span>
+  </span>
+  <span class="header__mobile-button__label {% if section.settings.show_menu_label == false %}sr-only{% endif %}">{{ 'liquid.partials.header_with_links.button_menu' | translate }}</span>
+</a>

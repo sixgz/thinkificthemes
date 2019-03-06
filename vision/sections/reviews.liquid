@@ -1,0 +1,191 @@
+<section class="reviews section-height__medium
+{% include 'section_utility_background' %}
+{% include 'section_utility_heading_alignment' %}" data-preview-item="reviews">
+  <div class="reviews__container">
+    {% include 'section_headings' %}
+    <article class="section__content">
+      {% if section.blocks != empty %}
+      {% assign rows = section.blocks.size | divided_by: 3.0 | ceil %}
+        <section class="reviews__list section__body">
+          {% for i in (1..rows) %}
+          <ul>
+          {% assign offset = forloop.index0 | times: 3 %}
+          {% for block in section.blocks limit: 3 offset: offset %}
+            {% assign review = block.settings.review %}
+            <li class="reviews__list-item" data-review-id="{{ forloop.index }}">
+              <header>
+                <p class="review__author">{{ review.user.full_name }}</p>
+                <span class="review__stars">
+                  {% for index in (1..review.rating) %}
+                    <input type="radio" name"rating" value="{{ index }}" tabindex="-1" />
+                    {% include 'star' %}
+                  {% endfor %}
+                </span>
+              </header>
+              <section class="review__body">
+                <div class="review__body--partial">
+                  <p>&ldquo;{{ review.review_text | truncate: 250 }}&rdquo;</p>
+                  {% if review.review_text.size >= 250 %}
+                    <a class="review__show-more" href="#">
+                      <span class="review__show-more__arrow">&rarr;</span>{{ 'liquid.views.curriculum_course_landing_page.read_more_text' | translate }}
+                    </a>
+                  {% endif %}
+                </div>
+                <div class="review__body--complete">
+                  <p>&ldquo;{{ review.review_text }}&rdquo;</p>
+                  <a class="review__show-less" href="#">
+                    <span class="review__show-more__arrow">&rarr;</span>{{ 'liquid.views.curriculum_course_landing_page.read_less_text' | translate }}
+                  </a>
+                </div>
+              </section>
+            </li>
+          {% endfor %}
+          </ul>
+          {% endfor %}
+        </section>
+      {% endif %}
+    </article>
+  </div>
+</section>
+
+<script>
+$(window).load(function(e) {
+  var $showButton = $('a[class*="review__show-"]'),
+      $reviewsCarousel = $('.reviews__list').addClass('owl-carousel'),
+      reviewCount = $('.reviews__list .reviews__list-item').length,
+      looped = (reviewCount < 1) ? false : true,
+      reviewsOwlOptions = {
+        center: false,
+        dots: true,
+        loop: false,
+        items: 1,
+        margin: 0,
+        nav: false,
+        slideBy: 1
+      };
+
+  $showButton.on('click keypress', function(e) {
+    if (e.which === 13 || e.type === 'click') {
+      e.preventDefault();
+      e.stopPropagation();
+      var $this = $(this),
+          $partial = $this.parents('.reviews__list-item').find('.review__body--partial'),
+          $full = $this.parents('.reviews__list-item').find('.review__body--complete');
+      if($this.hasClass('review__show-more')) {
+        $full.show();
+        $partial.hide();
+      }
+      else {
+        $full.hide();
+        $partial.show();
+      }
+    }
+  });
+  $reviewsCarousel.owlCarousel(reviewsOwlOptions);
+});
+</script>
+
+{% style %}
+
+.reviews {
+  {% include 'section_style_background' %}
+  {% include 'section_style_heading_alignment' %}
+}
+
+{% endstyle %}
+
+{% schema %}
+{
+  "label":"Social proof: reviews",
+  "settings":[
+    {
+      "label":"Headings",
+      "settings":[
+        {
+          "type":"text",
+          "id":"heading",
+          "label":"Heading",
+          "default":"Social proof: reviews"
+        },
+        {
+          "type":"text",
+          "id":"subheading",
+          "label":"Subheading",
+          "default":""
+        },
+        {
+          "type":"radio",
+          "id":"heading_alignment",
+          "label":"Alignment",
+          "description":"",
+          "default":"left",
+          "options":[
+            {
+              "value":"left",
+              "label":"Left"
+            },
+            {
+              "value":"center",
+              "label":"Center"
+            },
+            {
+              "value":"right",
+              "label":"Right"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "label":"Background Image",
+      "settings":[
+        {
+          "type":"image",
+          "id":"background_image",
+          "default":"https://cdn.thinkific.com/13/20180205/7e57f4d425ca1d31db8380c97d3f6771.png",
+          "label":"Image",
+          "description":"<small>Recommended: <strong>1440px x 720px (1MB)</strong></small>"
+        },
+        {
+          "type":"color",
+          "id":"overlay_color",
+          "label":"Overlay color",
+          "default":"#000000"
+        },
+        {
+          "type":"number",
+          "id":"overlay_opacity",
+          "label":"Overlay opacity",
+          "default":30,
+          "min":0,
+          "max":100
+        },
+        {
+          "type":"color",
+          "id":"text_color",
+          "label":"Text color override",
+          "default":"#ffffff"
+        }
+      ]
+    }
+  ],
+  "blocks":{
+    "label":"Add course review",
+    "limit":12,
+    "types":[
+      {
+        "type":"reviews",
+        "label":"Course review",
+        "settings":[
+          {
+            "type":"review_picker",
+            "id":"review",
+            "label":"Review"
+          }
+        ]
+      }
+    ],
+    "defaults":[]
+  }
+}
+{% endschema %}

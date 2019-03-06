@@ -1,0 +1,49 @@
+{% comment %}
+  These are the buttons that can appear on a bundle landing page
+  Resume, Enroll Free, Buy, etc.
+{% endcomment %}
+
+<section class="bundle-action-buttons section__button-group">
+  {% assign bundle = page.bundle %}
+
+  <div class="bundle-action-buttons__purchase
+  {% if bundle.additional_prices != empty %}
+    bundle-action-buttons--has-additional-prices
+  {% endif %}">
+    {% if bundle.previously_purchased %}
+      <a href="{{ bundle.links.resume }}" class="button button-primary">
+        {{ bundle.enroll_free_button_text }}
+      </a>
+    {% else %}
+      {% if bundle.additional_prices != empty %}
+        <label for="{{ bundle.name | kebab_case }}" class="form__select-no-label">
+          <select id="{{ bundle.name | kebab_case }}" name="{{ bundle.display_price }}" class="form__control bundle-action-buttons__additional-prices">
+            <option value="{{ bundle.links.buy }}" selected>{{ bundle.display_price }}</option>
+              {% for price in bundle.additional_prices %}
+                <option value="{{ price.links.add_to_cart }}">{{ price.display_price }}</option>
+              {% endfor %}
+          </select>
+        </label>
+      {% endif %}
+
+      <a href="{{ bundle.links.buy }}" class="button button-primary button-purchase">
+        {% if bundle.additional_prices != empty %}
+          {{ 'liquid.partials.course_landing_page_action_buttons.buy_button_multiple_prices' | translate }}
+        {% else %}
+          {{ bundle.buy_button_text }}
+        {% endif %}
+      </a>
+    {% endif %}
+  </div>
+</section>
+
+<script>
+$(window).load(function() {
+  var $priceList = $('.bundle-action-buttons__additional-prices'),
+      $buttonPurchase = $('.bundle-action-buttons .button-purchase');
+  $buttonPurchase.attr('href', $priceList.val());
+  $priceList.on('change', function() {
+    $buttonPurchase.attr('href', $(this).val());
+  });
+});
+</script>

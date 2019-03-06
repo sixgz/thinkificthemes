@@ -1,0 +1,33 @@
+{% if section.settings.heading_alignment == "center" or section.settings.content_alignment == "center" %}
+  .section__heading-ornament {
+
+    &:before {
+      @include transform(translatex(-50%));
+
+      top: 140%;
+      left: 50%;
+      width: $gutter-width;
+      height: 4px;
+    }
+  }
+{% endif %}
+
+{% if section.settings.heading_alignment == "right" or section.settings.content_alignment == "right" %}
+  .section__heading-ornament {
+    &:before {
+      left: initial;
+      right: -1rem;
+    }
+  }
+{% endif %}
+
+{% if section.settings.heading_alignment == "left" or section.settings.heading_alignment == "right"
+   or section.settings.content_alignment == "left" or section.settings.content_alignment == "right" %}
+  .section__heading-ornament {
+    &:before {
+      @include transform(translatey(-50%));
+
+      top: 50%;
+    }
+  }
+{% endif %}

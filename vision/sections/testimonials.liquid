@@ -1,0 +1,191 @@
+<section class="testimonials section-height__medium
+{% include 'section_utility_background' %}
+{% include 'section_utility_heading_alignment' %}" data-preview-item="testimonials">
+  <div class="testimonials__container">
+    {% include 'section_headings' %}
+    <article class="section__content">
+      {% if section.blocks != empty %}
+        <section class="testimonials__list">
+          {% for block in section.blocks %}
+            {% if forloop.length < 3 %}
+              {% assign card_style = "testimonials__list-item--stacked" %}
+            {% else %}
+              {% assign card_style = "" %}
+            {% endif %}
+            <div class="testimonials__list-item {{ card_style }}">
+              <div class="testimonials__list-item__wrapper">
+                {% if block.settings.testimonial_avatar != empty %}
+                  <header class="testimonial__avatar" style="background-image: url({{ block.settings.testimonial_avatar }});"></header>
+                {% endif %}
+                <div class="testimonial__body section__body">
+                  <p>&ldquo;{{ block.settings.testimonial_body }}&rdquo;</p>
+                  <footer class="testimonial__footer">
+                    <span class="testimonial__role">{{ block.settings.testimonial_role }}</span>
+                    <h4 class="testimonial__author">{{ block.settings.testimonial_author }}</h4>
+                  </footer>
+                </div>
+              </div>
+            </div>
+          {% endfor %}
+        </section>
+      {% endif %}
+    </article>
+  </div>
+</section>
+
+{% style %}
+
+.testimonials {
+  {% include 'section_style_background' %}
+  {% include 'section_style_heading_alignment' %}
+  {% include 'section_style_heading_ornament' %}
+
+  {% if section.settings.heading_color != blank %}
+    .section__heading,
+    .section__subheading {
+      color: {{ section.settings.heading_color }};
+    }
+  {% endif %}
+}
+
+{% endstyle %}
+
+{% schema %}
+{
+  "label":"Social proof: testimonials",
+  "settings":[
+    {
+      "label":"Headings",
+      "settings":[
+        {
+          "type":"text",
+          "id":"heading",
+          "label":"Heading",
+          "default":"Social proof: testimonials"
+        },
+        {
+          "type":"text",
+          "id":"subheading",
+          "label":"Subheading",
+          "default":""
+        },
+        {
+          "type":"radio",
+          "id":"heading_alignment",
+          "label":"Alignment",
+          "description":"",
+          "default":"left",
+          "options":[
+            {
+              "value":"left",
+              "label":"Left"
+            },
+            {
+              "value":"center",
+              "label":"Center"
+            },
+            {
+              "value":"right",
+              "label":"Right"
+            }
+          ]
+        },
+        {
+          "type":"color",
+          "id":"heading_color",
+          "label":"Text color override",
+          "default":"#ffffff"
+        }
+      ]
+    },
+    {
+      "label":"Background Image",
+      "settings":[
+        {
+          "type":"image",
+          "id":"background_image",
+          "default":"https://cdn.thinkific.com/13/20180205/7e57f4d425ca1d31db8380c97d3f6771.png",
+          "label":"Image",
+          "description":"<small>Recommended: <strong>1440px x 720px (1MB)</strong></small>"
+        },
+        {
+          "type":"color",
+          "id":"overlay_color",
+          "label":"Overlay color",
+          "default":"#000000"
+        },
+        {
+          "type":"number",
+          "id":"overlay_opacity",
+          "label":"Overlay opacity",
+          "default":30,
+          "min":0,
+          "max":100
+        }
+      ]
+    }
+  ],
+  "blocks":{
+    "label":"Add testimonial",
+    "limit":12,
+    "types":[
+      {
+        "type":"testimonial",
+        "label":"Testimonial",
+        "settings":[
+          {
+            "type":"text",
+            "id":"testimonial_author",
+            "label":"Author"
+          },
+          {
+            "type":"text",
+            "id":"testimonial_role",
+            "label":"Role"
+          },
+          {
+            "type":"image",
+            "id":"testimonial_avatar",
+            "label":"Avatar",
+            "default":"https://cdn.thinkific.com/13/20180214/f79d8732730818b871ffc27a028a2c39.png"
+          },
+          {
+            "type":"textarea",
+            "id":"testimonial_body",
+            "label":"Text"
+          }
+        ]
+      }
+    ],
+    "defaults":[
+      {
+        "type":"testimonial",
+        "values":{
+          "testimonial_author":"Author's name",
+          "testimonial_role":"Author's role",
+          "testimonial_avatar":"https://cdn.thinkific.com/13/20180214/f79d8732730818b871ffc27a028a2c39.png",
+          "testimonial_body":"Share testimonials about you, your course, or your content. Don’t be afraid to reach out to your network to get some glowing words about the work you’ve done. Most potential students will look to the opinions of others when making purchase decisions online."
+        }
+      },
+      {
+        "type":"testimonial",
+        "values":{
+          "testimonial_author":"Author's name",
+          "testimonial_role":"Author's role",
+          "testimonial_avatar":"https://cdn.thinkific.com/13/20180214/f79d8732730818b871ffc27a028a2c39.png",
+          "testimonial_body":"Share testimonials about you, your course, or your content. Don’t be afraid to reach out to your network to get some glowing words about the work you’ve done. Most potential students will look to the opinions of others when making purchase decisions online."
+        }
+      },
+      {
+        "type":"testimonial",
+        "values":{
+          "testimonial_author":"Author's name",
+          "testimonial_role":"Author's role",
+          "testimonial_avatar":"https://cdn.thinkific.com/13/20180214/f79d8732730818b871ffc27a028a2c39.png",
+          "testimonial_body":"Share testimonials about you, your course, or your content. Don’t be afraid to reach out to your network to get some glowing words about the work you’ve done. Most potential students will look to the opinions of others when making purchase decisions online."
+        }
+      }
+    ]
+  }
+}
+{% endschema %}

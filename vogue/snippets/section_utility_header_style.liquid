@@ -1,0 +1,8 @@
+{% if page.page_identifier == 'home_landing_page' or
+      page.page_identifier == 'bundle_landing_page' or
+      page.page_identifier == 'course_landing_page' or
+      page.page_identifier == 'page_template' %}
+  {% if section.settings.header_style == 'floating' %}
+    {% assign header_style = "floating" %}
+  {% endif %}
+{% endif %}

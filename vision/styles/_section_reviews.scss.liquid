@@ -1,0 +1,107 @@
+// Reviews
+// ======================================
+
+.reviews {
+  overflow: hidden;
+
+  .owl-carousel {
+
+    .owl-dots {
+
+      .owl-dot {
+        border-color: $accent__color;
+
+        &.active {
+          background-color: $accent__color;
+        }
+      }
+    }
+  }
+}
+
+.reviews__container {
+  @include make-container;
+}
+
+.reviews__list {
+  .owl-item {
+    width: 100%;
+
+    ul {
+      margin: 0;
+    }
+  }
+}
+
+.reviews__list-item {
+  @include make-row(false);
+
+  margin: 0 0 $gutter-width;
+
+  header {
+    @include screen-md-min {
+      @include display(flex);
+      @include flex-direction(column);
+      @include make-col(2, false);
+    }
+    @include make-col(12, false);
+
+    padding-right: $gutter-width;
+  }
+}
+
+.review__author {
+  @include screen-md-min {
+    @include order(2);
+  }
+
+  font-family: $heading__font-family;
+  font-size: modular-scale(0);
+  font-weight: 600;
+}
+
+.review__stars {
+  @include screen-md-min {
+    @include align-self(normal);
+    @include order(1);
+  }
+}
+
+.review__body {
+  @include screen-md-min {
+    @include make-col(10, false);
+  }
+  @include make-col(12, false);
+
+  p {
+    margin: 0 0 $gutter-width / 4;
+  }
+}
+
+.review__body--complete {
+  display: none;
+}
+
+.review__show-more,
+.review__show-less {
+  font-size: 0.875rem;
+  font-weight: bold;
+
+  &,
+  &:active,
+  &:focus,
+  &:hover {
+    text-decoration: none;
+  }
+}
+
+.review__show-more__arrow {
+  margin: 0 $gutter-width / 4 0 0;
+  font-family: Arial;
+  font-size: 1.2rem;
+}
+
+[class^="review__show-"] {
+  font-size: 0.875rem;
+  text-transform: uppercase;
+}

@@ -1,0 +1,20 @@
+<section class="header__user-menu">
+  <ul>
+    {% if site.current_user.signed_in %}
+      <li class="dropdown header__nav-item">
+        <a class="dropdown__toggle-button" data-toggle="dropdown" aria-expanded="true" tabindex="0">
+          {{ site.current_user.first_name_last_initial }}
+          <img src="{{ site.current_user.avatar }}" class="header__user-avatar">
+          <i class="fa fa-caret-down"></i>
+        </a>
+        {% include 'user_menu' %}
+      </li>
+    {% else %}
+      <li class="header__nav-item header__nav-sign-in">
+        <a href='{{ site.sign_in_url }}'>
+          {{ 'liquid.partials.header_with_links.link_sign_in' | translate }}
+        </a>
+      </li>
+    {% endif %}
+  </ul>
+</section>

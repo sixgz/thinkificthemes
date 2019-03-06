@@ -1,0 +1,52 @@
+<section class="checkout__thank-you">
+  <h1 class="checkout__heading">{{ 'liquid.partials.checkout_thankyou.header_thanks' | translate }} {{ site.current_user.first_name_last_initial }}</h6>
+  <p class="checkout__order-receipt">
+    {{ 'liquid.views.checkout_thankyou_page.text_info' | translate }}
+    <a href="{{ page.order_receipt_url }}">
+      {{ 'liquid.views.checkout_thankyou_page.link_order_receipt' | translate }}
+    </a>
+  </p>
+  <h2 class="checkout__subheading">{{ 'liquid.partials.checkout_thankyou.subheader_you_can_now_begin' | translate }}
+    {% for item in page.items %}
+      {% if forloop.index != 1 %}
+        {{ item.name | append ', ' }}
+      {% else %}
+        {{ item.name }}
+      {% endif %}
+    {% endfor %}
+  </h2>
+  </ul>
+</section>
+<section class="checkout__start-learning">
+  {% if page.product_is_course %}
+    <a class="button button-primary" href="{{ page.take_course_url }}">
+      {{ 'liquid.views.checkout_thankyou_page.link_start_learning' | translate }}
+    </a>
+  {% else %}
+    <ul class="checkout__bundle-list">
+      {% for bundled_course in page.bundled_courses %}
+        <li class="checkout__bundle-list-item">
+          <div class="checkout__product-details">
+            <strong>{{ bundled_course.name }}</strong>
+            <a class="button button-primary" href="{{ bundled_course.links.resume }}">
+              {{ 'liquid.views.checkout_thankyou_page.link_start_learning' | translate }}
+            </a>
+          </div>
+        </li>
+      {% endfor %}
+    </div>
+    {% if page.has_more_bundled_courses %}
+      <div class="checkout__bundle-additional-courses">
+        {{ page.remaining_bundle_courses_message }}
+      </div>
+    {% endif %}
+  {% endif %}
+</section>
+
+{% schema %}
+{
+  "label":"Default",
+  "description":"This is a default section — the foundation of your Thinkific site.  While this section is not editable, you can customize this page by adding new sections.",
+  "settings":[]
+}
+{% endschema %}

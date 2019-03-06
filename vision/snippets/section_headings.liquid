@@ -1,0 +1,10 @@
+{% if section.settings.heading != blank or section.settings.subheading != blank %}
+  <header class="section__headings section__headings--reverse">
+    {% if section.settings.heading != blank %}
+      <h3 class="section__heading section__heading-ornament">{{ section.settings.heading }}</h3>
+    {% endif %}
+    {% if section.settings.subheading != blank %}
+      <h4 class="section__subheading">{{ section.settings.subheading }}</h4>
+    {% endif %}
+  </header>
+{% endif %}

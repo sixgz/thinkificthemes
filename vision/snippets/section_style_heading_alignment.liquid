@@ -1,0 +1,17 @@
+.section__headings {
+  text-align: {{ section.settings.heading_alignment }};
+}
+
+{% if section.settings.heading_alignment == "center" %}
+  .section__heading,
+  .section__subheading {
+    @include align-self(center);
+  }
+{% endif %}
+
+{% if section.settings.heading_alignment == "right" %}
+  .section__heading,
+  .section__subheading {
+    @include align-self(flex-end);
+  }
+{% endif %}

@@ -1,0 +1,31 @@
+{% comment %}
+  This is the card representation of your bundle.
+{% endcomment %}
+
+<section class="course-card__featured {{ bundle.status }}" data-card-url="{{ bundle.links.landing_page_url }}" tabindex="0">
+  <div class="course-card__body">
+    <section class="section__headings course-card__featured__headings">
+      <h4 class="section__subheading">
+        {% for collection in bundle.collections %}
+          {% if forloop.last == false %}
+            {{ collection.name | append: ", " }}
+          {% else %}
+            {{ collection.name }}
+          {% endif %}
+        {% endfor %}
+      </h4>
+      <h3 class="section__heading">{{ bundle.name }}</h3>
+    </section>
+    {% if bundle.tagline != blank %}
+      <p class="course-card__featured__description">{{ bundle.description | truncate: 250 }}</p>
+    {% endif %}
+    <section class="section__button-group">
+      <a href="{{ bundle.links.landing_page_url }}" class="button button-primary">{{ 'liquid.partials.bundle_card.link_landing_page' | translate }}</a>
+    </section>
+  </div>
+  <header class="course-card__img-container">
+    <a href="{{ bundle.links.landing_page_url }}" tabindex="-1">
+      <img class="course-card__img" src="{{ bundle.image.original }}" alt="{{ bundle.name }}" />
+    </a>
+  </header>
+</section>

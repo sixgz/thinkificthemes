@@ -1,0 +1,30 @@
+{% comment %}
+  This is the checkout thankyou page.
+  Specifically, this is the page where a user lands after purchasing a course
+  or a bundle.
+{% endcomment %}
+
+<main class="checkout checkout__thankyou" id="main-content" role="main">
+  <div class="checkout__container">
+    <div class="checkout__wrapper">
+      {% section 'checkout_thankyou' %}
+    </div>
+  </div>
+  {{ content_for_page }}
+</main>
+
+{% schema %}
+{
+  "sections":{
+    "options":[
+      "banner",
+      "course_cards",
+      "frequently_asked_questions",
+      "call_to_action",
+      "countdown",
+      "video"
+    ],
+    "defaults":[]
+  }
+}
+{% endschema %}
