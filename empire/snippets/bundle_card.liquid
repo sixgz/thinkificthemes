@@ -4,7 +4,7 @@
 
 <a class="course-card course-card__public {{ bundle.status }}" href="{{ bundle.links.landing_page_url }}" tabindex="0">
   <div class="course-card__body">
-    <h4>
+    <h2 class="course-card__category">
       {% for collection in bundle.collections %}
         {% if forloop.last == false %}
           {{ collection.name | append: ", " }}
@@ -12,7 +12,7 @@
           {{ collection.name }}
         {% endif %}
       {% endfor %}
-    </h4>
+    </h2>
     <h3>{{ bundle.name }}</h3>
   </div>
   {% if bundle.display_price %}
@@ -27,6 +27,6 @@
   {% endif %}
   <header class="course-card__img-container">
     <img class="course-card__img" src="{{ bundle.image.original }}" alt="{{ bundle.name }}" />
-    <span class="course-card__bundle-size"><i class="fa fa-clone"></i>{{ bundle.courses.size }} {{ 'liquid.partials.bundle_card.details_courses' | translate }}</span>
+    <span class="course-card__bundle-size"><i class="fa fa-clone" aria-hidden="true"></i>{{ bundle.courses.size }} {{ 'liquid.partials.bundle_card.details_courses' | translate }}</span>
   </header>
 </a>

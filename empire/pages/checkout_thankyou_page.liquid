@@ -15,16 +15,20 @@
 
 {% schema %}
 {
+  "description": "The upsells [smart section] can be previewed for each specific course or bundle in its after purchase settings. <a href='/manage/courses/' target='_blank'>Go to your courses</a>.",
   "sections":{
     "options":[
       "banner",
+      "checkout_thankyou_upsells",
       "course_cards",
       "frequently_asked_questions",
       "call_to_action",
       "countdown",
       "video"
     ],
-    "defaults":[]
+    "defaults":[
+      "checkout_thankyou_upsells"
+    ]
   }
 }
 {% endschema %}

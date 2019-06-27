@@ -5,15 +5,15 @@
       {% if section.settings.heading != blank or section.settings.subheading != blank %}
         <header class="section__headings">
           {% if section.settings.heading != blank %}
-            <h3 class="section__heading">{{ section.settings.heading }}</h3>
+            <h1 class="section__heading">{{ section.settings.heading }}</h1>
           {% endif %}
           {% if section.settings.subheading != blank %}
-            <h4 class="section__subheading">{{ section.settings.subheading }}</h4>
+            <h2 class="section__subheading">{{ section.settings.subheading }}</h2>
           {% endif %}
         </header>
       {% endif %}
       <article class="section__content section__body">
-        <ul class="countdown-clock section__body" data-deadline="{{ section.settings.expiry_date }}">
+        <ul class="countdown-clock section__body" data-deadline="{{ section.settings.expiry_date }}" aria-live="polite">
           <li class="clock-days">
             <div class="countdown__chrono">
               <span class="countdown__count">00</span><strong>{{ 'liquid.partials.countdown.days' | translate }}</strong>

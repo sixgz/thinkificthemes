@@ -185,14 +185,15 @@
     }
   }
 
-  i {
+  button {
     @include transform(translate(-6px, 0));
 
     display: inline-block;
     position: absolute;
-    top: 6px;
     left: $gutter-width / 2;
     height: 1rem;
+    border: 0;
+    background-color: transparent;
 
     &:before,
     &:after {
@@ -211,10 +212,6 @@
 
     &:after {
       @include transform(translate(-2px, 0) rotate(-45deg));
-    }
-
-    &:focus {
-      outline: 0;
     }
   }
 

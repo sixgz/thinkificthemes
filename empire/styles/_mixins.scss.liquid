@@ -239,18 +239,16 @@
   &:hover {
     @include transition(transform 200ms ease, background-color 200ms ease, box-shadow 200ms ease);
     @include transform(translateY($gutter-width / -2));
-
+    
+    outline-color: transparent;
     background-color: $interface__background-color--active;
     color: $body__text-color;
     box-shadow: $shadow-card;
+
   }
 
-  &:focus {
-    outline-color: transparent;
-  }
-
-  h3,
-  h4 {
+  h1,
+  h2 {
     color: $heading__color;
     font-family: $subheading__font-family;
   }
@@ -548,6 +546,21 @@
   font-family: $subheading__font-family;
   font-weight: $subheading__font-weight;
   line-height: $heading__line-height;
+}
+
+@mixin page-headings {
+  h1,
+  h2, {
+    @include screen-md-min {
+      font-size: 3rem;
+      text-align: left;
+    }
+
+    margin-bottom: $gutter-width / 2;
+    font-size: 2.5rem;
+    line-height: 1.2;
+    text-align: center;
+  }
 }
 
 @mixin heading-ornament {

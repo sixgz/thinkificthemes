@@ -4,10 +4,10 @@
     {% include 'section_headings' %}
     <article class="section__content">
       {% if section.blocks != empty %}
-        <ul class="reviews__list section__body">
+        <div class="reviews__list section__body" role="list">
           {% for block in section.blocks %}
             {% assign review = block.settings.review %}
-            <li class="reviews__list-item" data-review-id="{{ forloop.index }}">
+            <div class="reviews__list-item" data-review-id="{{ forloop.index }}" role="listitem">
               <header>
                 <span class="review__stars">
                   {% for index in (1..review.rating) %}
@@ -15,9 +15,9 @@
                     {% include 'star' %}
                   {% endfor %}
                 </span>
-                <h4 class="review__title">
+                <h3 class="review__title">
                   {{ review.title | truncate: 60 }}
-                </h4>
+                </h3>
                 <h4 class="review__author">{{ review.user.full_name }}</h4>
               </header>
               <section class="review__body">
@@ -36,9 +36,9 @@
                   </a>
                 </div>
               </section>
-            </li>
+            </div>
           {% endfor %}
-        </ul>
+        </div>
       {% endif %}
     </article>
   </div>
@@ -56,7 +56,7 @@ $(window).load(function(e) {
         loop: false,
         margin: 0,
         nav: true,
-        navText: ['<i class="fa fa-angle-left"></i>','<i class="fa fa-angle-right"></i>'],
+        navText: ['<button aria-label="previous" class="fa fa-angle-left"></button>','<button aria-label="next" class="fa fa-angle-right"></button>'],
         slideBy: 1,
         responsive: {
           0: {

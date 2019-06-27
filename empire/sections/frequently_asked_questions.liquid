@@ -8,8 +8,8 @@
         <ul class="faq__list section__body">
           {% for block in section.blocks %}
             <li class="faq__list-item">
-              <input type="checkbox" {% if !section.settings.show_collapsed %} checked="checked" {% endif %}/>
-              <strong>{{ block.settings.faq_question }}<i></i></strong>
+              <input type="checkbox" {% if !section.settings.show_collapsed %} checked="checked" {% endif %} aria-label="Expand or collapse"/>
+              <strong>{{ block.settings.faq_question }}<i aria-hidden="true"></i></strong>
               <p>{{ block.settings.faq_answer }}</p>
             </li>
           {% endfor %}

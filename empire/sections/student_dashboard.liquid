@@ -1,6 +1,6 @@
 <section class="student-dashboard__banner">
   <div class="student-dashboard__container">
-    <h4 class="student-dashboard__heading">{{ 'liquid.views.student_dashboard.header_dashboard' | translate }}, {{ site.current_user.first_name_last_initial }}</h4>
+    <p class="student-dashboard__heading">{{ 'liquid.views.student_dashboard.header_dashboard' | translate }}, {{ site.current_user.first_name_last_initial }}</p>
   </div>
 </section>
 <section class="student-dashboard__content">
@@ -18,7 +18,7 @@
         <div class="form__group">
           <a href='{{ site.collections_url }}'>{{ 'liquid.views.student_dashboard.link_view_more_courses' | translate }}</a>
           <label class="form__label form__select-no-label">
-            <select name="status" id="status" class="form__control">
+            <select name="status" id="status" class="form__control" aria-label="status">
               {% for type in page.status_types %}
               <option value="{{type[0]}}">{{type[1]}}</option>
               {% endfor %}

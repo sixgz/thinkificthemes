@@ -3,7 +3,9 @@
     {% if section.blocks != empty %}
       <ul class="gallery__list">
         {% for block in section.blocks %}
-          <li class="gallery__list-item {{ 'gallery__list-item-count-' | append: forloop.length }}" style="background-image: url({{ block.settings.gallery_image }});" role="img" aria-label="{{ block.settings.gallery_image_description }}"></li>
+        <li class="gallery__list-item {{ 'gallery__list-item-count-' | append: forloop.length }}">
+          <img src="{{ block.settings.gallery_image }}" alt="{{ section.settings.gallery_image_alt }}" title="{{ section.settings.image_alt }}">
+        </li>
         {% endfor %}
       </ul>
     {% endif %}
@@ -60,9 +62,9 @@
           },
           {
             "type":"text",
-            "id":"gallery_image_description",
-            "label":"Description",
-            "description":"<small>Used for 'aria-label' text. Recommended for accessibility.</small>"
+            "id":"gallery_image_alt",
+            "label":"Image alt text",
+            "description":"<small>Describe your image for the visually impaired.</small>"
           }
         ]
       }

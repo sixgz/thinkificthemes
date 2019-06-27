@@ -24,11 +24,9 @@ a {
   color: $link__color;
 
   &:active,
-  &:hover,
-  &:focus {
-    @include transition(all 200ms ease);
-
-    outline: none;
+  &:focus,
+  &:hover {
+    outline: 0;
     color: $link__color--active;
   }
 

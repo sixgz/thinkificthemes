@@ -4,10 +4,10 @@
     {% include 'section_headings' %}
     <article class="section__content">
       {% if section.blocks != empty %}
-        <ul class="instructor__list section__body">
+        <div class="instructor__list section__body" role="list">
           {% for block in section.blocks %}
           {% assign instructor = block.settings.instructor %}
-            <li class="instructor__list-item">
+            <div class="instructor__list-item" role="listitem">
               {% if instructor.avatar != blank %}
               <div class="instructor__avatar">
                 <img class="instructor__avatar-img" src="{{ instructor.image.original }}" alt="{{ instructor.full_name }}" title="{{ instructor.full_name }}"  />
@@ -16,9 +16,9 @@
               <div class="instructor__profile">
                 <header>
                   {% if instructor.title != blank %}
-                    <h4 class="instructor__title">
+                    <h3 class="instructor__title">
                       {{ instructor.title }}
-                    </h4>
+                    </h3>
                   {% endif %}
                   <h4 class="instructor__name">
                     {{ instructor.full_name }}
@@ -30,20 +30,20 @@
                   </section>
                   <ul class="instructor__social">
                     {% if block.settings.social_icon != null and block.settings.social_link != blank and block.settings.social_text != blank %}
-                      <li><a href="{{ block.settings.social_link }}"><i class="fa {{ block.settings.social_icon }}"></i> {{ block.settings.social_text }}</a></li>
+                      <li><a href="{{ block.settings.social_link }}"><i class="fa {{ block.settings.social_icon }}" aria-label="{{ block.settings.social_link }}"></i> {{ block.settings.social_text }}</a></li>
                     {% endif %}
                     {% if block.settings.social_icon_2 != null and block.settings.social_link_2 != blank and block.settings.social_text_2 != blank %}
-                      <li><a href="{{ block.settings.social_link_2 }}"><i class="fa {{ block.settings.social_icon_2 }}"></i> {{ block.settings.social_text_2 }}</a></li>
+                      <li><a href="{{ block.settings.social_link_2 }}"><i class="fa {{ block.settings.social_icon_2 }}" aria-label="{{ block.settings.social_link_2 }}"></i> {{ block.settings.social_text_2 }}</a></li>
                     {% endif %}
                     {% if instructor.email != blank and section.settings.show_email == true %}
-                      <li><a href="mailto:{{ instructor.email }}"><i class="fa fa-envelope"></i> Email</a></li>
+                      <li><a href="mailto:{{ instructor.email }}"><i class="fa fa-envelope" aria-hidden="true"></i> Email</a></li>
                     {% endif %}
                   </ul>
                 {% endif %}
               </div>
-            </li>
+            </div>
           {% endfor %}
-        </ul>
+        </div>
       {% endif %}
     </article>
   </div>
@@ -59,7 +59,7 @@ $(window).load(function() {
         loop: looped,
         margin: 0,
         nav: true,
-        navText: ['<i class="fa fa-angle-left"></i>','<i class="fa fa-angle-right"></i>'],
+        navText: ['<button aria-label="previous" class="fa fa-angle-left"></button>','<button aria-label="next" class="fa fa-angle-right"></button>'],
         slideBy: 1,
         responsive: {
           0: {

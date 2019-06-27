@@ -8,6 +8,14 @@
 
 .course-review__container {
   @include make-container;
+
+  h1 {
+    font-size: 1.5rem;
+  }
+
+  p {
+    font-size: 1.3rem;
+  }
 }
 
 .course-review__wrapper {
@@ -40,6 +48,7 @@
   }
 
   .review__stars-input {
+    margin-top: 1rem;
 
     &:before {
       font-size: 2rem;
@@ -68,5 +77,5 @@
 }
 
 .course-review__submit {
-  padding-top: $gutter-width * 2;
+  padding-top: $gutter-width * 1.5;
 }

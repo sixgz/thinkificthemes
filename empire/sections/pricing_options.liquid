@@ -24,30 +24,30 @@
             {% endif %}
             <li class="pricing-table__list-item">
               <div class="pricing-table__list-item-details">
-                <h4>{{ product.display_price }}</h4>
+                <h3>{{ product.display_price }}</h3>
                 {% if section.settings.price_name != empty %}
                   <p>{{ section.settings.price_name }}</p>
                 {% endif %}
               </div>
               {% if product.is_free %}
                 <a href="{{ product.links.enroll_free }}" class="button button-{{ section.settings.button_type }}">{% if section.settings.button_text != empty %}{{ button_text }}{% else %}{{ enroll_free_text }}{% endif %}
-                <i class="fa fa-chevron-right"></i>
+                <i class="fa fa-chevron-right" aria-hidden="true"></i>
                 </a>
               {% else %}
                 {% assign product_url = product.links.buy %}
                 <a href="{{ product_url }}" class="button button-{{ section.settings.button_type }}">
                   {{ button_text }}
-                  <i class="fa fa-chevron-right"></i>
+                  <i class="fa fa-chevron-right" aria-hidden="true"></i>
                 </a>
               {% endif %}
             </li>
             {% for price in product.additional_prices %}
               <li class="pricing-table__list-item">
                 <div class="pricing-table__list-item-details">
-                  <h4>{{ price.display_price }}</h4>
+                  <h3>{{ price.display_price }}</h3>
                   <p>{{ price.name }}</p>
                 </div>
-                <a href="{{ price.links.add_to_cart }}" class="button button-{{ section.settings.button_type }}">{{ button_text }}<i class="fa fa-chevron-right"></i></a>
+                <a href="{{ price.links.add_to_cart }}" class="button button-{{ section.settings.button_type }}">{{ button_text }}<i class="fa fa-chevron-right" aria-hidden="true"></i></a>
               </li>
             {% endfor %}
           </ul>

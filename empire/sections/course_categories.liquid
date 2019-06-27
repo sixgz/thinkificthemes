@@ -15,9 +15,12 @@
                   {% else %}
                     {% assign category_image = category.image.original %}
                   {% endif %}
-                  <img class="course-category-card__img" src="{{ category_image }}" alt="{{ category.name }}" />
+
                   {% if block.settings.show_category_name %}
-                    <h3>{{ category.name }}</h3>
+                    <img class="course-category-card__img" src="{{ category_image }}" alt="{{ collection.name }}" aria-hidden="true"/>
+                    <p>{{ collection.name }}</p>
+                  {% else %}
+                    <img class="course-category-card__img" src="{{ category_image }}" alt="{{ collection.name }}"/>
                   {% endif %}
                 </div>
               </a>

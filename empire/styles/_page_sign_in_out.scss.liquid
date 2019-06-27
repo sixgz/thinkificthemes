@@ -6,6 +6,7 @@
 .express-sign-in,
 .social-sign-up {
   @include page-padding;
+  @include page-headings;
 }
 
 .sign-in,
@@ -13,7 +14,7 @@
 .social-sign-up {
   .page__heading {
     margin-bottom: $gutter-width;
-    text-align: center;
+    text-align: center !important;
   }
 }
 
@@ -170,8 +171,9 @@
   position: relative;
   width: 100%;
   margin-top: $gutter-width;
-  font-size: modular-scale(1);
-  text-align: center;
+  font-size: modular-scale(1) !important;
+  font-weight: 400;
+  text-align: center !important;
   text-transform: lowercase;
   opacity: 0.5;
 

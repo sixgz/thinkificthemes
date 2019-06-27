@@ -24,10 +24,12 @@
       left: auto;
       margin: 15px;
       padding: 15px;
+      width: 200px;
+      height: 60px;
       border: 2px solid $alert--info;
       background-color: $black;
       color: $white;
-      font-size: 1.2rem;
+      font-size: 1rem;
       text-align: center;
       overflow: auto;
       z-index: z-index(page-foreground);
@@ -177,16 +179,42 @@
 
     .owl-prev,
     .owl-next {
-      @include transition(color 200ms ease);
       @include screen-md-min {
         border-radius: 50%;
-        background-color: $accent__color;
-        color: $body__background-color;
+      }
+
+      button {
+        @include screen-md-min {
+        	border-radius: 50%;
+        	background-color: $accent__color;
+        	color: dynamic-contrast-color($accent__color);
+
+        	&:active,
+        	&:focus,
+        	&:hover {
+        	  outline: 0;
+        	  opacity: 0.5;
+          }
+
+        	&,
+        	&:active,
+        	&:focus,
+        	&:hover {
+        	  @include transition(opacity 400ms ease);
+        	  color: $body__background-color;
+        	}
+        }
+
+        width: 2rem;
+        height: 2rem;
+        border: 0;
+        color: $accent__color;
 
         &:active,
         &:focus,
         &:hover {
-          color: dynamic-contrast-color($body__background-color);
+          @include transition(opacity 400ms ease);
+          color: $body__background-color;
         }
       }
 
@@ -194,6 +222,7 @@
       position: absolute;
       width: 2rem;
       height: 2rem;
+      background-color: $body__background-color;
       color: $accent__color;
       font-size: modular-scale(3);
       letter-spacing: 0;
@@ -219,11 +248,19 @@
     .owl-prev {
       left: $gutter-width / -2;
       letter-spacing: 3px;
+
+      .fa {
+        padding-left: 3px;
+      }
     }
 
     .owl-next {
       right: $gutter-width / -2;
       letter-spacing: -3px;
+
+      .fa {
+        padding-right: 3px;
+      }
     }
   }
 }

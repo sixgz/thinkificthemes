@@ -4,11 +4,11 @@
     {% include 'section_headings' %}
     <article class="section__content">
       {% if section.blocks != empty %}
-        <section class="testimonials__list section__body">
+        <section class="testimonials__list section__body" role="list">
           {% for block in section.blocks %}
-            <div class="testimonials__list-item">
+            <div class="testimonials__list-item" role="listitem">
               <img src="{{ block.settings.testimonial_avatar }}" alt="{{ block.settings.testimonial_author }}" title="{{ block.settings.testimonial_author }}" />
-              <h4 class="testimonial__title">{{ block.settings.testimonial_title }}</h4>
+              <h3 class="testimonial__title">{{ block.settings.testimonial_title }}</h3>
               <h4 class="testimonial__author">{{ block.settings.testimonial_author }}</h4>
               <section>
                 {{ block.settings.testimonial_body }}
@@ -33,7 +33,7 @@ $(window).load(function() {
         items: 1,
         margin: 0,
         nav: true,
-        navText: ['<i class="fa fa-angle-left"></i>','<i class="fa fa-angle-right"></i>'],
+        navText: ['<button class="fa fa-angle-left" aria-label="previous"></button>','<button class="fa fa-angle-right" aria-label="next"></button>'],
         slideBy: 1
       };
   $testimonialsCarousel.owlCarousel(testimonialsOwlOptions);

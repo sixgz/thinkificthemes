@@ -10,16 +10,16 @@
             {% assign price = upsell.price %}
             <li class="upsells__list-item">
               {% if upsell.icon != blank %}
-                <i class="fa {{ upsell.icon }}"></i>
+                <i class="fa {{ upsell.icon }}" aria-hidden="true"></i>
               {% endif %}
               <div class="upsells__details">
                 {% if price != blank %}
-                  <h4 class="upsells__price">
+                  <h3 class="upsells__price">
                     {{ price.display_price }}
-                  </h4>
+                  </h3>
                 {% endif %}
                 <section class="upsells__details__wrapper">
-                  <h4 class="upsells__title"><span class="upsells__title__price">{{ price.display_price }}</span>{{ price.product.name }}</h4>
+                  <h3 class="upsells__title"><span class="upsells__title__price">{{ price.display_price }}</span>{{ price.product.name }}</h3>
                   <div class="upsells__description">
                     {{ upsell.body }}
                   </div>

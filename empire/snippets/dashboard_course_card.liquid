@@ -5,7 +5,7 @@
 <article class="course-card course-card__dashboard">
   <div class="course-card__body">
     <a class="course-card__header" href="{{ card.resume_course_url }}" tabindex="0">
-      <h3>{{ card.name }}</h3>
+      <h2 class="course-card__header-title">{{ card.name }}</h2>
     {% if card.has_enrollment %}
       <section class="course-card__progress--bar">
         <span class="progress__bar" style="width:{{ card.progress_percentage }}%;"></span>
