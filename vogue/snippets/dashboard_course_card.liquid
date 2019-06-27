@@ -10,7 +10,7 @@
   {% endif %}
   <header class="course-card__img">
     <img class="course-card__img-container" src="{{ product_image }}" alt="{{ course.name }}" />
-    <h3>{{ card.name_truncated }}</h3>
+    <h2>{{ card.name_truncated }}</h2>
     <a href="{{ card.resume_course_url }}" class="button button-primary" tabindex="-1">
       {% if card.progress_percentage == 0 %}
         {{ 'liquid.partials.dashboard_course_card.link_start_course' | translate }}
@@ -39,31 +39,31 @@
   </article>
   <footer class="course-card__details">
     <a href="{{ card.landing_page_url }}" class="course-card__overview" tabindex="0">
-      <i class="fa fa-edit"></i>
+      <i class="fa fa-edit" aria-hidden="true"></i>
       {{ 'liquid.partials.dashboard_course_card.link_see_overview' | translate }}
     </a>
     {% if card.progress_percentage == 100 %}
       {% if card.course_reviews_enabled %}
         <a href="{{ card.course_review_url }}" class="course-card__rate" tabindex="0">
-          <i class="fa fa-star-half-o"></i>
+          <i class="fa fa-star-half-o" aria-hidden="true"></i>
           {{ 'liquid.partials.dashboard_course_card.link_rate_course' | translate }}
         </a>
       {% else %}
         <a href="{{ card.resume_course_url }}" class="course-card__resume" tabindex="0">
-          <i class="fa fa-repeat"></i>
+          <i class="fa fa-repeat" aria-hidden="true"></i>
           {{ 'liquid.partials.dashboard_course_card.link_replay_course' | translate }}
         </a>
       {% endif %}
     {% else %}
       <a href="{{ card.resume_course_url }}" class="course-card__resume" tabindex="0">
         {% if card.progress_percentage == 0 %}
-          <i class="fa fa-play"></i>
+          <i class="fa fa-play" aria-hidden="true"></i>
           {{ 'liquid.partials.dashboard_course_card.link_start_course' | translate }}
         {% elsif card.progress_percentage > 0 and card.progress_percentage < 100 %}
-          <i class="fa fa-play"></i>
+          <i class="fa fa-play" aria-hidden="true"></i>
           {{ 'liquid.partials.dashboard_course_card.link_resume_course' | translate }}
         {% else %}
-          <i class="fa fa-repeat"></i>
+          <i class="fa fa-repeat" aria-hidden="true"></i>
           {{ 'liquid.partials.dashboard_course_card.link_replay_course' | translate }}
         {% endif %}
       </a>

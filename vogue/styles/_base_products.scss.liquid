@@ -43,14 +43,14 @@
         top: 40%;
       }
 
-      h3 {
+      h2 {
         @include transition(opacity 400ms ease);
 
         opacity: 0;
       }
     }
 
-    h3 {
+    h2 {
       @include transition(opacity 400ms ease);
       @include transform(translatey(-50%));
 
@@ -667,10 +667,14 @@
     border: 0;
     z-index: z-index(element--middleground);
 
-    &:active,
-    &:focus,
     &:hover {
       outline: none;
+      background-color: transparent;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    &:active,
+    &:focus {
       background-color: transparent;
       -webkit-tap-highlight-color: transparent;
     }

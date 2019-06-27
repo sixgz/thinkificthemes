@@ -229,12 +229,8 @@
     box-shadow: $shadow-card;
   }
 
-  &:focus {
-    outline-color: transparent;
-  }
-
-  h3,
-  h4 {
+  h1,
+  h2 {
     color: $heading__color;
   }
 }
@@ -531,6 +527,23 @@
   font-family: $subheading__font-family;
   font-weight: $subheading__font-weight;
   line-height: $heading__line-height;
+}
+
+@mixin page-headings {
+  h1,
+  h2 {
+    &[class*="__heading"] {
+      @include screen-md-min {
+        font-size: 3rem;
+        text-align: left;
+      }
+
+      margin-bottom: $gutter-width / 2;
+      font-size: 2.5rem;
+      line-height: 1.2;
+      text-align: center;
+    }
+  }
 }
 
 // Headers

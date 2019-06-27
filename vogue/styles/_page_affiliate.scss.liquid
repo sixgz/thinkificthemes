@@ -7,6 +7,13 @@
 
 .affiliate__container {
   @include make-container;
+  @include page-headings;
+
+  h2,
+  h3 {
+    font-size: 1.3rem;
+    font-weight: 400;
+  }
 }
 
 .affiliate__wrapper {
@@ -56,8 +63,7 @@
   line-height: 1;
 }
 
-.affiliate__commissions-owed,
-.affiliate__commissions-paid {
+.affiliate__commissions-owed{
   p {
     @include form-control;
 
@@ -66,5 +72,15 @@
     min-width: 10rem;
     background-color: $form__input-disabled;
     line-height: 1;
+  }
+}
+
+.affiliate__commissions-owed ,
+.affiliate__commissions-overview {
+  h1 {
+    @include screen-md-min {
+      font-size: 1.7rem;
+    }
+    font-size: 1.4rem;
   }
 }

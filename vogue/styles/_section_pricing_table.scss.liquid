@@ -49,7 +49,7 @@
 
   .pricing-table__list-item-details {
 
-    h5 {
+    p {
       color: $accent__color;
     }
   }
@@ -58,7 +58,7 @@
 .pricing-table__list-item-details {
   @include screen-md-max {
 
-    h5 {
+    p {
       margin-bottom: $gutter-width;
     }
   }
@@ -70,18 +70,18 @@
     padding: 0;
   }
 
-  h4,
-  h5 {
+  h3,
+  p {
     font-family: $body__font-family;
   }
 
-  h4 {
+  h3 {
     margin: 0;
     font-size: 1.8rem;
     font-weight: 400;
   }
 
-  h5 {
+  p {
     @include screen-sm-min {
       margin: 0;
     }

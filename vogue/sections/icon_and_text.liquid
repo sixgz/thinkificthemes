@@ -8,8 +8,8 @@
         <ul class="text-icon__list section__body">
           {% for block in section.blocks %}
             <li class="text-icon__list-item">
-              <i class="fa {{ block.settings.ti_icon }}"></i>
-              <h4>{{ block.settings.ti_name }}</h4>
+              <i class="fa {{ block.settings.ti_icon }}" aria-hidden="true"></i>
+              <h3>{{ block.settings.ti_name }}</h3>
               <p>{{ block.settings.ti_body }}</p>
             </li>
           {% endfor %}

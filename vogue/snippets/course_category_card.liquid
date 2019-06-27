@@ -8,9 +8,11 @@
   {% assign category_image = collection.image.original %}
   {% endif %}
   <header class="course-category-card__img-container">
-    <img class="course-category-card__img" src="{{ category_image }}" alt="{{ collection.name }}" />
     {% if section.settings.show_category_name %}
-      <h3>{{ collection.name }}</h3>
+      <img class="course-category-card__img" src="{{ category_image }}" alt="{{ collection.name }}" aria-hidden="true"/>
+      <p>{{ collection.name }}</p>
+    {% else %}
+      <img class="course-category-card__img" src="{{ category_image }}" alt="{{ collection.name }}"/>
     {% endif %}
   </header>
 </a>

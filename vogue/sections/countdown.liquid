@@ -8,7 +8,7 @@
             <h3 class="section__heading">{{ section.settings.heading }}</h3>
           {% endif %}
           {% if section.settings.subheading != blank %}
-            <h4 class="section__subheading">{{ section.settings.subheading }}</h4>
+            <h3 class="section__subheading">{{ section.settings.subheading }}</h3>
           {% endif %}
           {% if section.settings.button_text != blank %}
             <section class="section__button-group">
@@ -18,7 +18,7 @@
         </header>
       {% endif %}
       <article class="section__content section__body">
-        <ul class="countdown-clock" data-deadline="{{ section.settings.expiry_date }}">
+        <ul class="countdown-clock" data-deadline="{{ section.settings.expiry_date }}" aria-live="polite">
           <li class="clock-days clock-interval"><span class="chrono">00</span><strong>{{ 'liquid.partials.countdown.days' | translate }}</strong></li>
           <li class="clock-hours clock-interval"><span class="chrono">00</span><strong>{{ 'liquid.partials.countdown.hours' | translate }}</strong></li>
           <li class="clock-minutes clock-interval"><span class="chrono">00</span><strong>{{ 'liquid.partials.countdown.minutes' | translate }}</strong></li>

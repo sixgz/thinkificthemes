@@ -14,7 +14,7 @@
   <div class="form__group">
     {% assign field = fields.email %}
     <label for="{{ field.name }}" class="form__label">{{ field.label }}
-      <div class="tooltip"><i class="fa fa-question-circle"></i><span>{{ 'liquid.views.social_sign_up_page.tooltip_email_required' | translate }}</span></div>
+      <div class="tooltip"><i class="fa fa-question-circle" aria-hidden="true"></i><span>{{ 'liquid.views.social_sign_up_page.tooltip_email_required' | translate }}</span></div>
       <input type="email" id="{{ field.name }}" name="{{ field.name }}" value="{{ field.value }}" placeholder="{{ field.placeholder }}" {% if field.required %}required{% endif %} autocapitalize="off" autocomplete="off" autocorrect="off" spellcheck="false" class="form__control" />
     </label>
   </div>

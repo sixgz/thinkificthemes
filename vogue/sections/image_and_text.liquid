@@ -15,7 +15,7 @@
       </section>
       {% if section.settings.image != blank %}
         <section class="text-image__image">
-          <img src="{{ section.settings.image }}" alt="{{ section.settings.heading }}" title="{{ section.settings.heading }}" class="img-responsive" />
+          <img src="{{ section.settings.image }}" alt="{{ section.settings.image_alt }}" title="{{ section.settings.image_alt }}" class="img-responsive" />
         </section>
       {% endif %}
     </article>
@@ -114,6 +114,12 @@
           "id":"image",
           "label":"",
           "default":"https://cdn.thinkific.com/13/20180205/2fe50a485eaf445b855d83b153605d08.png"
+        },
+        {
+          "type":"text",
+          "id":"image_alt",
+          "label":"Image alt text",
+          "description":"<small>Describe your image for the visually impaired.</small>"
         },
         {
           "type":"number",

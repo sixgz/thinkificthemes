@@ -22,12 +22,14 @@
     &:focus {
       top: auto;
       left: auto;
+      width: 200px;
+      height: 60px;
       margin: 15px;
       padding: 15px;
       border: 2px solid $alert--info;
       background-color: $black;
       color: $white;
-      font-size: 1.2rem;
+      font-size: 1rem;
       text-align: center;
       overflow: auto;
       z-index: z-index(page-foreground);
@@ -172,19 +174,21 @@
 
     .owl-prev,
     .owl-next {
-      @include transition(color 200ms ease);
-
       position: absolute;
-      color: $accent__color;
       font-size: modular-scale(1);
       letter-spacing: 0;
       line-height: 1;
       z-index: z-index(element--middleground);
 
-      &:active,
-      &:focus,
-      &:hover {
-        color: darken($accent__color, 5%);
+      button {
+        @include transition(color 200ms ease);
+        color: $accent__color;
+
+        &:active,
+        &:focus,
+        &:hover {
+          color: darken($accent__color, 5%);
+        }
       }
 
       .fa {

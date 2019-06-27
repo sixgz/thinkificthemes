@@ -8,14 +8,13 @@
 .student-dashboard__container {
   @include make-container;
   @include page-padding;
-
-
+  @include page-headings;
 }
 
 .student-dashboard__banner {
   background-color: $body__background-color;
 
-  h4 {
+  p {
     @include screen-md-min {
       font-size: 1.875rem;
       text-align: left;

@@ -9,8 +9,8 @@
           <ul class="checklist__list section__body">
             {% for block in section.blocks %}
               <li class="checklist__list-item">
-                <i class="fa {{ block.settings.item_icon }}"></i>
-                <h4>{{ block.settings.item_name }}</h4>
+                <i class="fa {{ block.settings.item_icon }}" aria-hidden="true"></i>
+                <p>{{ block.settings.item_name }}</p>
               </li>
             {% endfor %}
           </ul>

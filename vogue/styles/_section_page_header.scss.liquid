@@ -52,13 +52,6 @@
       }
     }
   }
-
-  a {
-
-    &:focus {
-      outline-color: transparent;
-    }
-  }
 }
 
 .header__container {
@@ -154,7 +147,7 @@
         &:active,
         &:focus,
         &:hover {
-          background-color: $nav__mobile-background-color--active;
+          background-color: darken($nav__mobile-background-color--active, 5%);
           color: $nav__mobile-link-color--active;
         }
       }
@@ -347,6 +340,24 @@
   position: relative;
   width: $mobile-menu__width;
   height: $mobile-menu__height;
+  padding: 0;
+  border: 0;
+  background-color: transparent;
+
+  &:hover,
+  &:focus,
+  &:active {
+    outline: 0;
+
+    .header__mobile-button__toggle-icon span {
+      background-color: $nav__link-color--active;
+
+      &:before,
+      &:after {
+        background-color: $nav__link-color--active;
+      }
+    }
+  }
 }
 
 .header__mobile-button__label {

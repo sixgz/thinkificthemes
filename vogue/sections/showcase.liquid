@@ -4,13 +4,13 @@
     {% include 'section_headings' %}
     <article class="section__content">
       {% if section.blocks != empty %}
-        <ul class="showcase__list section__body">
+        <div class="showcase__list section__body" role="list">
           {% for block in section.blocks %}
-            <li class="showcase__list-item">
+            <div class="showcase__list-item" role="listitem">
               <img src="{{ block.settings.showcase_image }}" alt="{{ block.settings.showcase_name }}" title="{{ block.settings.showcase_name }}" class="img-responsive" />
-            </li>
+            </div>
           {% endfor %}
-        </ul>
+        </div>
       {% endif %}
     </article>
   </div>
@@ -167,16 +167,16 @@ $(window).load(function() {
         "label":"Logo",
         "settings":[
           {
-            "type":"text",
-            "id":"showcase_name",
-            "label":"Name",
-            "description":"<small>Used for 'alt' & 'title' text. Recommended for accessibility.</small>"
-          },
-          {
             "type":"image",
             "id":"showcase_image",
             "label":"Image",
             "default":"https://cdn.thinkific.com/13/20180205/2fe50a485eaf445b855d83b153605d08.png"
+          },
+          {
+            "type":"text",
+            "id":"showcase_name",
+            "label":"Image alt text",
+            "description":"<small>Describe your image for the visually impaired.</small>"
           }
         ]
       }
