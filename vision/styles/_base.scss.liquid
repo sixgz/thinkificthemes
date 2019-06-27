@@ -24,12 +24,10 @@ a {
   color: $link__color;
   cursor: pointer;
 
-  &:active,
   &:hover,
+  &:active,
   &:focus {
-    @include transition(all 200ms ease);
-
-    outline: none;
+    outline: 0;
     color: $link__color--active;
   }
 

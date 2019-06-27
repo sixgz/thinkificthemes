@@ -22,12 +22,14 @@
     &:focus {
       top: auto;
       left: auto;
+      width: 205px;
+      height: 60px;
       margin: 15px;
       padding: 15px;
       border: 2px solid $alert--info;
       background-color: $black;
       color: $white;
-      font-size: 1.2rem;
+      font-size: 1rem;
       text-align: center;
       overflow: auto;
       z-index: z-index(page-foreground);
@@ -178,20 +180,24 @@
       }
 
       position: absolute;
-      color: $body__text-color;
       font-size: modular-scale(2);
       letter-spacing: 0;
       line-height: 1;
-      opacity: 0.3;
       z-index: z-index(element--middleground);
 
-      &:active,
-      &:focus,
-      &:hover {
-        @include transition(color 400ms ease, opacity 400ms ease);
+      button {
+        &:active,
+        &:focus,
+        &:hover {
+          @include transition(color 400ms ease, opacity 400ms ease);
 
-        color: $accent__color;
-        opacity: 1;
+          outline: 0;
+          color: $accent__color;
+          opacity: 1;
+        }
+
+        color: $body__text-color;
+        opacity: 0.3;
       }
 
       .fa {
@@ -274,4 +280,8 @@
     top: 50%;
     left: 50%;
   }
+}
+
+.iframe-lightbox {
+  z-index: z-index(modal) !important;
 }

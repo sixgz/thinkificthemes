@@ -6,6 +6,13 @@
 }
 
 .course-card__dashboard {
+
+  .course-card__title {
+    font-size: 1.125rem;
+    font-weight: bold;
+    line-height: 1.25;
+  }
+
   .course-card__course-link {
     text-decoration: none;
   }
@@ -650,10 +657,14 @@
     border: 0;
     z-index: z-index(element--middleground);
 
-    &:active,
-    &:focus,
     &:hover {
       outline: none;
+      background-color: transparent;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    &:active,
+    &:focus {
       background-color: transparent;
       -webkit-tap-highlight-color: transparent;
     }

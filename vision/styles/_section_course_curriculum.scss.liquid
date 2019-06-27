@@ -155,6 +155,13 @@
   @include screen-md-min {
     right: $gutter-width / 2;
 
+    button {
+      border: 0;
+      padding: 0;
+      outline-offset: 5px;
+      background-color: transparent;
+    }
+
     .course-curriculum__chapter--collapsed & {
 
       right: $gutter-width;
@@ -193,10 +200,10 @@
     }
   }
 
-  i {
+  button {
     display: inline-block;
     position: relative;
-    top: 6px;
+    top: 3px;
     left: 0;
     width: 100%;
     height: 100%;
@@ -226,7 +233,7 @@
 
   .course-curriculum__chapter--collapsed & {
 
-    i {
+    button {
       @include screen-md-min {
         left: 1rem;
       }

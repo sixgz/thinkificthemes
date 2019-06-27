@@ -66,15 +66,9 @@ h6 {
 h1,
 h2 {
   &[class*="__heading"] {
-    @include screen-md-min {
-      font-size: 3rem;
-      text-align: left;
-    }
     @include heading;
-
     margin-bottom: $gutter-width / 2;
-    font-size: 2.5rem;
-    text-align: center;
+    line-height: 1.2;
   }
 }
 

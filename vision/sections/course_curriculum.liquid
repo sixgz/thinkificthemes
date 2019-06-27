@@ -17,8 +17,8 @@
             <span class="course-curriculum__chapter-number">{{ index | prepend: chapter_prefix }}</span>
             <div class="course-curriculum__chapter-content-wrapper">
               <header class="course-curriculum__chapter-header">
-                <h5 class="course-curriculum__chapter-title">{{ chapter.name }}</h5>
-                <span class="course-curriculum__chapter-header__toggle"><span class="course-curriculum__chapter-header__toggle-label">{{ 'liquid.partials.course_footer_scripts.show_content_text' | translate }}</span><i></i></span>
+                <h3 class="course-curriculum__chapter-title">{{ chapter.name }}</h3>
+                <span class="course-curriculum__chapter-header__toggle"><span class="course-curriculum__chapter-header__toggle-label">{{ 'liquid.partials.course_footer_scripts.show_content_text' | translate }}</span><button aria-label="toggle curriculum content"></button></span>
               </header>
               <ul class="course-curriculum__chapter-content" id="chapter-{{ index + 1 }}">
                 {% for content in chapter.contents %}
@@ -28,7 +28,7 @@
                     {% else %}
                       <span class="course-curriculum__chapter-lesson">
                     {% endif %}
-                    <i class="{{ content.icon_css_class }}"></i>{{ content.name }}
+                    <i class="{{ content.icon_css_class }}" aria-hidden="true"></i>{{ content.name }}
                     {% if content.free %}
                       <span class="course-curriculum__chapter-lesson--free">{{ 'liquid.partials.course_landing_page_curriculum.label_free' | translate }}</span>
                     {% endif %}
@@ -58,7 +58,7 @@ $(document).ready(function() {
     });
   {% endif %}
   $header.on('click keypress', function(e) {
-    if (e.which === 13 || e.type === 'click') {
+    if (e.type === 'click') {
       e.stopPropagation();
       var $content = $(this).next('.course-curriculum__chapter-content');
 

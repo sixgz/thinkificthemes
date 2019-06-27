@@ -55,7 +55,7 @@
 .pricing-table__list-item-details {
   @include screen-md-max {
 
-    h5 {
+    p {
       margin-bottom: $gutter-width;
     }
   }
@@ -67,18 +67,14 @@
     padding: 0;
   }
 
-  h4,
-  h5 {
-    font-family: $body__font-family;
-  }
-
-  h4 {
+  h3 {
     margin: 0 0 $gutter-width / 4;
+    font-family: $body__font-family;
     font-size: modular-scale(2);
     font-weight: 600;
   }
 
-  h5 {
+  p {
     @include screen-sm-min {
       margin: 0;
     }

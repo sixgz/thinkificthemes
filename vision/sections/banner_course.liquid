@@ -23,13 +23,13 @@
         <section class="section__social-nav">
           <ul class="social-nav__list">
             {% if social_link %}
-              <li class="social-nav__list-item"><a href="{{ section.settings.social_link }}" target="_blank"><i class="fa {{ section.settings.social_icon }}"></i></a></li>
+              <li class="social-nav__list-item"><a href="{{ section.settings.social_link }}" target="_blank"><i class="fa {{ section.settings.social_icon }}" aria-label="{{ section.settings.social_link }}"></i></a></li>
             {% endif %}
             {% if social_link_2 %}
-              <li class="social-nav__list-item"><a href="{{ section.settings.social_link_2 }}" target="_blank"><i class="fa {{ section.settings.social_icon_2 }}"></i></a></li>
+              <li class="social-nav__list-item"><a href="{{ section.settings.social_link_2 }}" target="_blank"><i class="fa {{ section.settings.social_icon_2 }}" aria-label="{{ section.settings.social_link_2 }}></i></a></li>
             {% endif %}
             {% if social_link_3 %}
-              <li class="social-nav__list-item"><a href="{{ section.settings.social_link_3 }}" target="_blank"><i class="fa {{ section.settings.social_icon_3 }}"></i></a></li>
+              <li class="social-nav__list-item"><a href="{{ section.settings.social_link_3 }}" target="_blank"><i class="fa {{ section.settings.social_icon_3 }}" aria-label="{{ section.settings.social_link_3 }}"></i></a></li>
             {% endif %}
           </ul>
         </section>
@@ -71,7 +71,7 @@
         <section class="section__video">
           <div class="section__video__wrapper">
             {% if section.settings.video.frame != blank and section.settings.video_thumbnail != blank %}
-              <span class="video__play-button"></span>
+              <button class="video__play-button" aria-label="Play video"></button>
             {% endif %}
             {% if section.settings.video.frame != blank and section.settings.video_thumbnail == blank %}
               {{ section.settings.video.frame }}

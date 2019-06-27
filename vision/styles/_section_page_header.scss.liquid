@@ -325,6 +325,24 @@
   position: relative;
   width: $mobile-menu__width;
   height: $mobile-menu__height;
+  padding: 0;
+  border: 0;
+  background-color: transparent;
+
+  &:hover,
+  &:focus,
+  &:active {
+    outline: 0;
+
+    .header__mobile-button__toggle-icon span {
+      background-color: $nav__link-color--active;
+
+      &:before,
+      &:after {
+        background-color: $nav__link-color--active;
+      }
+    }
+  }
 }
 
 .header__mobile-button__label {
@@ -367,6 +385,8 @@
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
+  border: 0;
+  background-color: transparent;
 
   span {
     @include transition(background $mobile-menu__transition ease);

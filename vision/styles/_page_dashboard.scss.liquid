@@ -7,6 +7,7 @@
 
 .student-dashboard__container {
   @include make-container;
+  @include page-headings;
   @include screen-lg-min {
     padding-top: $gutter-width;
     padding-bottom: $gutter-width;
@@ -19,9 +20,10 @@
 .student-dashboard__banner {
   background-color: $interface__background-color;
 
-  h4 {
+  p {
     margin: 0;
     font-family: $body__font-family;
+    font-size: modular-scale(4);
     font-weight: 400;
   }
 }

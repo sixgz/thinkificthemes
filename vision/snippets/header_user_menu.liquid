@@ -4,8 +4,8 @@
       <li class="dropdown header__nav-item">
         <a class="dropdown__toggle-button" data-toggle="dropdown" aria-expanded="true" tabindex="0">
           {{ site.current_user.first_name_last_initial }}
-          <img src="{{ site.current_user.avatar }}" class="header__user-avatar">
-          <i class="fa fa-caret-down"></i>
+          <img src="{{ site.current_user.avatar }}" class="header__user-avatar" aria-hidden="true">
+          <i class="fa fa-caret-down" aria-hidden="true"></i>
         </a>
         {% include 'user_menu' %}
       </li>

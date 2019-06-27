@@ -8,8 +8,8 @@
         <ul class="bonus__list section__body">
           {% for block in section.blocks %}
             <li class="bonus__list-item">
-              <i class="fa {{ block.settings.bonus_icon }}"></i>
-              <h4>{{ block.settings.bonus_name }}</h4>
+              <i class="fa {{ block.settings.bonus_icon }}" aria-hidden="true"></i>
+              <h3>{{ block.settings.bonus_name }}</h3>
               <p>{{ block.settings.bonus_body }}</p>
             </li>
           {% endfor %}

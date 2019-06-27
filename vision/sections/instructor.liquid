@@ -3,19 +3,19 @@
   <div class="instructor__container">
     <article class="section__content">
       {% if section.blocks != empty %}
-        <ul class="instructor__list">
+        <div class="instructor__list" role="listitem">
           {% for block in section.blocks %}
           {% assign instructor = block.settings.instructor %}
-            <li class="instructor__profile">
+            <div class="instructor__profile" role="list">
               <section class="instructor__bio">
                 {% include 'section_headings' %}
                 {% if instructor.bio != blank %}
                 {{ instructor.bio }}
                 {% endif %}
                 <div class="instructor__details">
-                  <h4 class="instructor__name">
+                  <h3 class="instructor__name">
                     {{ instructor.full_name }}
-                  </h4>
+                  </h3>
                   {% if instructor.title != blank %}
                     <h4 class="instructor__title">
                       {{ instructor.title }}
@@ -31,9 +31,9 @@
                   <img class="instructor__avatar-img" src="{{ instructor.image.original }}" alt="{{ instructor.full_name }}" title="{{ instructor.full_name }}" />
                 {% endif %}
               </div>
-            </li>
+            </div>
           {% endfor %}
-        </ul>
+        </div>
       {% endif %}
     </article>
   </div>
@@ -51,7 +51,7 @@ $(window).load(function() {
         loop: looped,
         margin: 0,
         nav: true,
-        navText: ['<i class="fa fa-chevron-left"></i>','<i class="fa fa-chevron-right"></i>'],
+        navText: ['<button aria-label="previous" class="fa fa-chevron-left"></button>','<button aria-label="next" class="fa fa-chevron-right"></button>'],
         slideBy: 1,
         responsive: {
           0: {

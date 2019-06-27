@@ -8,7 +8,7 @@
     <div class="course-review__wrapper">
       <article class="course-review__form">
         <h1 class="course-review__heading">{{ 'liquid.views.new_course_review_page.custom_tell_us_what_you_thought_text' | translate }}</h1>
-        <h3>{{ page.course_review.course.name }}</h3>
+        <h2>{{ page.course_review.course.name }}</h2>
         {% form 'new_course_review' %}
         {% if errors.size > 0 %}
           {% include 'form_errors' %}
@@ -26,13 +26,16 @@
           </label>
         </div>
         {% assign field = fields.rating %}
-        <label for="{{ field.name }}" class="form__review-stars-label ">{{ field.label }}</label>
-        <span class="review__stars review__stars-input">
-          {% for i in (1..5) %}
-            <input type="radio" value="{{ i }}" name="{{ field.name }}" {% if i == 5 %}checked="checked"{% endif %} />
-            {% include 'star' %}
-          {% endfor %}
-        </span>
+        <div role="radiogroup" aria-labelledby="stars">
+          <label id="stars" for="{{ field.name }}" class="form__label form__review-stars-label">{{ field.label }}<br>
+            <span class="review__stars review__stars-input">
+                {% for i in (1..5) %}
+                  <input type="radio" aria-label="{{ i }}" value="{{ i }}" name="{{ field.name }}" {% if field.value == i %}checked="checked"{% endif %} />
+                  {% include 'star' %}
+                {% endfor %}
+            </span>
+          </label>
+        </div>
         <aside class="form__button-group course-review__submit">
           <input type="submit" value="{{ fields.submit.label }}" class="button button-primary" />
         </aside>
