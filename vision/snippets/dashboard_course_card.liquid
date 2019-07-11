@@ -13,7 +13,7 @@
       <img class="course-card__img-container" src="{{ product_image }}" alt="{{ card.name_truncated }}" />
     </a>
   </header>
-  <a class="course-card__course-link" href="{{ card.resume_course_url }}" tabindex="0">
+  <a class="course-card__course-link" href="{{ card.resume_course_url }}" tabindex="0" aria-label="{{ card.name_truncated }}">
     <article class="course-card__body">
         <section class="course-card__progress course-card__progress--circle" data-progress="{{ card.progress_percentage }}">
           <span class="circle">

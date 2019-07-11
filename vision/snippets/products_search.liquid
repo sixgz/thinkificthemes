@@ -6,7 +6,7 @@
   <form action="{{ site.collections_url }}" method="get" id="search-form" class="products__search-form">
     <div class="products__search-box">
       <label for="q" class="form__search-label">
-        <input type="search" name="q" placeholder="{{ 'liquid.partials.product_search.search_placeholder' | translate }}" value="{{ page.search_query }}" class="form__control form__control-search" />
+        <input type="search" name="q" placeholder="{{ 'liquid.partials.product_search.search_placeholder' | translate }}" value="{{ page.search_query }}" class="form__control form__control-search" aria-label="{{ 'liquid.partials.product_search.search_placeholder' | translate }}"/>
       </label>
     </div>
   </form>

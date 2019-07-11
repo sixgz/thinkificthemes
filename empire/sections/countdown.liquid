@@ -16,22 +16,22 @@
         <ul class="countdown-clock section__body" data-deadline="{{ section.settings.expiry_date }}" aria-live="polite">
           <li class="clock-days">
             <div class="countdown__chrono">
-              <span class="countdown__count">00</span><strong>{{ 'liquid.partials.countdown.days' | translate }}</strong>
+              <span class="countdown__count" role="timer" aria-atomic="true">00</span><strong>{{ 'liquid.partials.countdown.days' | translate }}</strong>
             </div>
           </li>
           <li class="clock-hours">
             <div class="countdown__chrono">
-              <span class="countdown__count">00</span><strong>{{ 'liquid.partials.countdown.hours' | translate }}</strong>
+              <span class="countdown__count" role="timer" aria-atomic="true">00</span><strong>{{ 'liquid.partials.countdown.hours' | translate }}</strong>
             </div>
           </li>
           <li class="clock-minutes">
             <div class="countdown__chrono">
-              <span class="countdown__count">00</span><strong>{{ 'liquid.partials.countdown.minutes' | translate }}</strong>
+              <span class="countdown__count" role="timer" aria-atomic="true">00</span><strong>{{ 'liquid.partials.countdown.minutes' | translate }}</strong>
             </div>
           </li>
           <li class="clock-seconds">
             <div class="countdown__chrono">
-              <span class="countdown__count">00</span><strong>{{ 'liquid.partials.countdown.seconds' | translate }}</strong>
+              <span class="countdown__count" role="timer" aria-atomic="true">00</span><strong>{{ 'liquid.partials.countdown.seconds' | translate }}</strong>
             </div>
           </li>
         </ul>

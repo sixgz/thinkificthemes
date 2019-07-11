@@ -14,10 +14,10 @@
       {% endif %}
       <article class="section__content section__body">
         <ul class="countdown-clock" data-deadline="{{ section.settings.expiry_date }}">
-          <li class="clock-days clock-interval"><span class="chrono">00</span><strong>{{ 'liquid.partials.countdown.days' | translate }}</strong></li>
-          <li class="clock-hours clock-interval"><span class="chrono">00</span><strong>{{ 'liquid.partials.countdown.hours' | translate }}</strong></li>
-          <li class="clock-minutes clock-interval"><span class="chrono">00</span><strong>{{ 'liquid.partials.countdown.minutes' | translate }}</strong></li>
-          <li class="clock-seconds clock-interval"><span class="chrono">00</span><strong>{{ 'liquid.partials.countdown.seconds' | translate }}</strong></li>
+          <li class="clock-days clock-interval"><span class="chrono" role="timer" aria-atomic="true">00</span><strong>{{ 'liquid.partials.countdown.days' | translate }}</strong></li>
+          <li class="clock-hours clock-interval"><span class="chrono" role="timer" aria-atomic="true">00</span><strong>{{ 'liquid.partials.countdown.hours' | translate }}</strong></li>
+          <li class="clock-minutes clock-interval"><span class="chrono" role="timer" aria-atomic="true">00</span><strong>{{ 'liquid.partials.countdown.minutes' | translate }}</strong></li>
+          <li class="clock-seconds clock-interval"><span class="chrono" role="timer" aria-atomic="true">00</span><strong>{{ 'liquid.partials.countdown.seconds' | translate }}</strong></li>
         </ul>
       </article>
       {% if section.settings.button_text != blank %}

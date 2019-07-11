@@ -14,7 +14,6 @@
   border-bottom: $interface__border;
 
   &.checkout__thankyou {
-
     .checkout__container {
       padding-bottom: $gutter-width * 2;
     }
@@ -29,13 +28,11 @@
   }
 
   &.checkout__paypal-express {
-
     .checkout__wrapper {
       margin-right: 0;
       margin-left: 0;
     }
   }
-
 }
 
 .checkout__container {
@@ -53,14 +50,12 @@
 }
 
 .checkout__form--sign-in {
-
   .remote-sign-up__divider {
     display: none;
   }
 }
 
 .checkout__form--sign-up {
-
   .remote-sign-in__divider {
     display: none;
   }
@@ -249,7 +244,6 @@
 }
 
 .checkout__product-list-item {
-
   &:last-child,
   &:only-child {
     .checkout__product-details__wrapper {
@@ -363,7 +357,7 @@
   padding: 0;
   line-height: 1.75rem;
 }
-.thinkific__checkout__cart-item__cost{
+.thinkific__checkout__cart-item__cost {
   @include screen-md-min {
     @include make-col(4);
     padding-right: 0;
@@ -399,14 +393,54 @@
   }
 
   .thinkific__checkout__credit-card-instantly-checkout {
-      font-size: 12px;
-      font-weight: bold;
-      text-align: center;
+    font-size: 12px;
+    font-weight: bold;
+    text-align: center;
   }
 }
 
 .thinkific__checkout__credit-card-submit-container {
   text-align: center;
+
+  .btn {
+    width: 100%;
+    height: 55px;
+    border-radius: 4px;
+  }
+}
+
+.paypal-smart-button__row {
+  margin-bottom: $gutter-width / 2;
+
+  display: table;
+  white-space: nowrap;
+  width: 100%;
+  font-weight: 600;
+  height: 32px;
+
+  &:before,
+  &:after {
+    display: table-cell;
+    position: relative;
+    top: 1em;
+    width: 45%;
+    border-top: $interface__border;
+    content: "";
+  }
+
+  &:before {
+    right: 0;
+  }
+
+  &:after {
+    left: 0;
+  }
+}
+
+.paypal-smart-button__text {
+  display: table-cell;
+  text-align: center;
+  vertical-align: middle;
 }
 
 .thinkific__checkout__cart-item,

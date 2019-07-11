@@ -63,6 +63,19 @@ h6 {
   }
 }
 
+@mixin h4 {
+  @include screen-md-min {
+    font-size: modular-scale(1, $modular-scale-base-md);
+  }
+  @include screen-lg-min {
+    font-size: modular-scale(1);
+  }
+  margin: 0 0 $gutter-width / 2;
+  font-family: $heading__font-family;
+  font-size: modular-scale(1, $modular-scale-base-sm);
+  line-height: $heading__line-height;
+}
+
 h1,
 h2 {
   &[class*="__heading"] {

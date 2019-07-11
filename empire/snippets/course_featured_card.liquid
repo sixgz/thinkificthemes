@@ -4,7 +4,7 @@
 
 <section class="course-card course-card__featured course-card__public {{ course.status }}" data-card-url="{{ course.links.landing_page_url }}" tabindex="0">
   <div class="course-card__body">
-    <h4>
+    <h2 class="course-card__category">
       {% for collection in course.collections %}
         {% if forloop.last == false %}
           {{ collection.name | append: ", " }}
@@ -12,7 +12,7 @@
           {{ collection.name }}
         {% endif %}
       {% endfor %}
-    </h4>
+    </h2>
     <h3>{{ course.name }}</h3>
     {% if course.reviews_enabled and course.reviews.approved_count > 0 %}
       <div class="course-card__reviews">
@@ -38,7 +38,7 @@
     {% endif %}
   </div>
   <header class="course-card__img-container">
-    <img class="course-card__img" src="{{ course.image.original }}" alt="{{ course.name }}" />
-    <a href="{{ course.links.landing_page_url }}" tabindex="-1"></a>
+    <img class="course-card__img" src="{{ course.image.original }}" alt="" />
+    <a href="{{ course.links.landing_page_url }}" tabindex="-1" aria-label="{{ 'liquid.partials.course_card.link_landing_page' | translate }}"></a>
   </header>
 </section>

@@ -11,6 +11,7 @@
         {% include 'my_account_menu' %}
       </aside>
       <main class="my-account__content" id="main-content" role="main">
+        <h1 class="my-account__heading">{{ 'liquid.views.my_account_page.header_your_profile' | translate }}</h1>
         {% form 'my_account' %}
         {% if errors.size > 0 %}
           {% include 'form_errors' %}

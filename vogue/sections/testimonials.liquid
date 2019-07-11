@@ -9,7 +9,7 @@
             <div class="testimonials__list-item">
               <i class="fa fa-quote-left" aria-hidden="true"></i>
               <p>&ldquo;{{ block.settings.testimonial_body }}&rdquo;</p>
-              <span><img src="{{ block.settings.testimonial_avatar }}" alt="{{ block.settings.testimonial_author }}" title="{{ block.settings.testimonial_author }}" />{{ block.settings.testimonial_author }}</span>
+              <span><img src="{{ block.settings.testimonial_avatar }}" alt="" title="{{ block.settings.testimonial_author }}" />{{ block.settings.testimonial_author }}</span>
             </div>
           {% endfor %}
         </section>
@@ -30,7 +30,7 @@ $(window).load(function() {
         loop: looped,
         margin: 0,
         nav: true,
-        navText: ['<button aria-label="previous" class="fa fa-chevron-left"></button>','<button aria-label="next" class="fa fa-chevron-right"></button>'],
+        navText: ['<i aria-label="previous" class="fa fa-chevron-left"></i>','<i aria-label="next" class="fa fa-chevron-right"></i>'],
         slideBy: 1,
         responsive: {
           0: {

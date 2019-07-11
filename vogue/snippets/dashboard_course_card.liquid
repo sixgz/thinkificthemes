@@ -9,7 +9,7 @@
   {% assign product_image = card.image.original %}
   {% endif %}
   <header class="course-card__img">
-    <img class="course-card__img-container" src="{{ product_image }}" alt="{{ course.name }}" />
+    <img class="course-card__img-container" src="{{ product_image }}" alt="" />
     <h2>{{ card.name_truncated }}</h2>
     <a href="{{ card.resume_course_url }}" class="button button-primary" tabindex="-1">
       {% if card.progress_percentage == 0 %}

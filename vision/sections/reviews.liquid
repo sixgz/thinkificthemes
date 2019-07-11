@@ -8,11 +8,11 @@
       {% assign rows = section.blocks.size | divided_by: 3.0 | ceil %}
         <section class="reviews__list section__body">
           {% for i in (1..rows) %}
-          <div role="listitem">
+          <div role="list">
           {% assign offset = forloop.index0 | times: 3 %}
           {% for block in section.blocks limit: 3 offset: offset %}
             {% assign review = block.settings.review %}
-            <div class="reviews__list-item" data-review-id="{{ forloop.index }}" role="list">
+            <div class="reviews__list-item" data-review-id="{{ forloop.index }}" role="listitem">
               <header>
                 <p class="review__author">{{ review.user.full_name }}</p>
                 <span class="review__stars">

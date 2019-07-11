@@ -20,9 +20,9 @@
                       {{ instructor.title }}
                     </h3>
                   {% endif %}
-                  <h4 class="instructor__name">
+                  <p class="instructor__name">
                     {{ instructor.full_name }}
-                  </h4>
+                  </p>
                 </header>
                 {% if instructor.bio != blank %}
                   <section class="instructor__bio">
@@ -59,7 +59,7 @@ $(window).load(function() {
         loop: looped,
         margin: 0,
         nav: true,
-        navText: ['<button aria-label="previous" class="fa fa-angle-left"></button>','<button aria-label="next" class="fa fa-angle-right"></button>'],
+        navText: ['<i aria-label="previous" class="fa fa-angle-left"></i>','<i aria-label="next" class="fa fa-angle-right"></i>'],
         slideBy: 1,
         responsive: {
           0: {

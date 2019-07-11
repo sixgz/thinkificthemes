@@ -10,7 +10,9 @@
             {% for block in section.blocks %}
               <li class="bonus__list-item">
                 <h3>{{ block.settings.bonus_name }}</h3>
-                <h4>{{ block.settings.bonus_value }}</h4>
+                {% if block.settings.bonus_value != nil %}
+                  <h4>{{ block.settings.bonus_value }}</h4>
+                {% endif %}
                 <p>{{ block.settings.bonus_body }}</p>
               </li>
             {% endfor %}

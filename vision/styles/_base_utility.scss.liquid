@@ -22,7 +22,7 @@
     &:focus {
       top: auto;
       left: auto;
-      width: 205px;
+      width: 206px;
       height: 60px;
       margin: 15px;
       padding: 15px;
@@ -158,6 +158,11 @@
       &.active {
         background-color: $accent__color;
       }
+
+      &:focus {
+        outline: 0;
+        background-color: $accent__color;
+      }
     }
   }
 
@@ -191,7 +196,6 @@
         &:hover {
           @include transition(color 400ms ease, opacity 400ms ease);
 
-          outline: 0;
           color: $accent__color;
           opacity: 1;
         }

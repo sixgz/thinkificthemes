@@ -11,7 +11,7 @@
           <h1 class="student-dashboard__heading">{{ 'liquid.partials.student_dashboard.header_my_courses' | translate }}</h1>
           <div class="products__search-box">
             <label for="q" class="form__search-label">
-              <input type="search" name="q" placeholder="{{ 'liquid.partials.product_search.search_placeholder' | translate }}" value="{{ page.search_query }}" class="form__control form__control-search" />
+              <input type="search" name="q" placeholder="{{ 'liquid.partials.product_search.search_placeholder' | translate }}" value="{{ page.search_query }}" class="form__control form__control-search" aria-label="{{ 'liquid.partials.product_search.search_placeholder' | translate }}" />
             </label>
           </div>
         </div>
@@ -34,9 +34,9 @@
       Display the course and bundle cards
     {% endcomment %}
     {% if page.enrolled_cards != empty %}
+    {% assign cards = page.enrolled_cards | sort: 'last_accessed' | reverse %}
+    {% paginate cards by 6 %}
       <ul class="products__list">
-        {% assign cards = page.enrolled_cards | sort: 'last_accessed' | reverse %}
-        {% paginate cards by 6 %}
         {% for card in paginate.collection %}
           {% unless card.is_hidden %}
             <li class="products__list-item">
@@ -44,9 +44,9 @@
             </li>
           {% endunless %}
         {% endfor %}
-        {% include 'pagination' with paginate %}
-        {% endpaginate %}
       </ul>
+      {% include 'pagination' with paginate %}
+    {% endpaginate %}
     {% else %}
       <p class="student-dashboard__no-enrollments">
         {{ 'liquid.views.student_dashboard.text_no_courses_found' | translate }}

@@ -148,6 +148,7 @@
       width: 11px;
       height: 11px;
       margin: 0 10px 0 0;
+      padding: 0;
       border: 1px solid $accent__color;
       border-radius: 50%;
 
@@ -158,6 +159,11 @@
       &.active {
         background-color: $accent__color;
       }
+
+      &:focus {
+       outline: 0;
+       background-color: $accent__color;
+     }
     }
   }
 
@@ -174,21 +180,23 @@
 
     .owl-prev,
     .owl-next {
+      @include transition(color 200ms ease);
       position: absolute;
+      width: 24px;
+      height: 24px;
+      border: 0;
+      background-color: transparent;
+      color: $accent__color;
       font-size: modular-scale(1);
       letter-spacing: 0;
       line-height: 1;
       z-index: z-index(element--middleground);
 
-      button {
-        @include transition(color 200ms ease);
-        color: $accent__color;
-
-        &:active,
-        &:focus,
-        &:hover {
-          color: darken($accent__color, 5%);
-        }
+      &:active,
+      &:focus,
+      &:hover {
+        outline: 0;
+        color: darken($accent__color, 5%);
       }
 
       .fa {

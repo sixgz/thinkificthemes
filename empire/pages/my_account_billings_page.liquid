@@ -9,7 +9,7 @@
     <div class="my-account__wrapper">
       {% if page.has_form_errors %}
         <div id="notice" class="notice__form-error">
-          <p>
+          <p role="alert">
             {% if page.form_error_count == 1 %}
               {{ page.form_error_count }}
               {{ 'liquid.views.my_account_billings_page.error.one' | translate }}
@@ -22,7 +22,7 @@
           </p>
           <ul class="form-error__list">
             {% for error_message in page.form_error_messages %}
-              <li class="form-error__list-item">{{ error_message }}</li>
+              <li class="form-error__list-item" role="alert">{{ error_message }}</li>
             {% endfor %}
           </ul>
         </div>

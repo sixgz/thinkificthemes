@@ -3,10 +3,10 @@
   <div class="instructor__container">
     <article class="section__content">
       {% if section.blocks != empty %}
-        <div class="instructor__list" role="listitem">
+        <div class="instructor__list" role="list">
           {% for block in section.blocks %}
           {% assign instructor = block.settings.instructor %}
-            <div class="instructor__profile" role="list">
+            <div class="instructor__profile" role="listitem">
               <section class="instructor__bio">
                 {% include 'section_headings' %}
                 {% if instructor.bio != blank %}
@@ -51,7 +51,7 @@ $(window).load(function() {
         loop: looped,
         margin: 0,
         nav: true,
-        navText: ['<button aria-label="previous" class="fa fa-chevron-left"></button>','<button aria-label="next" class="fa fa-chevron-right"></button>'],
+        navText: ['<i aria-label="previous" class="fa fa-chevron-left"></i>','<i aria-label="next" class="fa fa-chevron-right"></i>'],
         slideBy: 1,
         responsive: {
           0: {

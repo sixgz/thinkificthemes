@@ -9,7 +9,7 @@
   {% assign product_image = bundle.image.original %}
   {% endif %}
   <header>
-    <img class="course-card__img-container" src="{{ product_image }}" alt="{{ bundle.name }}" />
+    <img class="course-card__img-container" src="{{ product_image }}" alt="" />
     <span class="course-card__bundled-courses"><i class="fa fa-clone" aria-hidden="true"></i>{{ bundle.courses.size }} {{ 'liquid.partials.bundle_card.details_courses' | translate }}</span>
   </header>
   <div class="course-card__body">

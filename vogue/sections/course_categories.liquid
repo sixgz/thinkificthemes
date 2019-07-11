@@ -8,14 +8,14 @@
           {% for block in section.blocks %}
           {% assign category = block.settings.category %}
             <li class="course-category__list-item">
-              <a class="course-category-card" href="{{ category.url }}" tabindex="0">
+              <a class="course-category-card" href="{{ category.url }}" tabindex="0" aria-label="{{ category.name }}">
                 {% if category.image.medium != blank %}
                   {% assign category_image = category.image.medium %}
                 {% else %}
                   {% assign category_image = category.image.original %}
                 {% endif %}
                 <header class="course-category-card__img-container">
-                  <img class="course-card__img-container" src="{{ category_image }}" alt="{{ collection.name }}" />
+                  <img class="course-card__img-container" src="{{ category_image }}" alt="" />
                   {% if block.settings.show_category_name %}
                     <h3>{{ category.name }}</h3>
                   {% endif %}

@@ -4,18 +4,20 @@
     {% include 'section_headings' %}
     <article class="section__content">
       {% if section.blocks != empty %}
-        <section class="testimonials__list section__body" role="list">
+        <div class="testimonials__list section__body" role="list">
           {% for block in section.blocks %}
             <div class="testimonials__list-item" role="listitem">
               <img src="{{ block.settings.testimonial_avatar }}" alt="{{ block.settings.testimonial_author }}" title="{{ block.settings.testimonial_author }}" />
-              <h3 class="testimonial__title">{{ block.settings.testimonial_title }}</h3>
-              <h4 class="testimonial__author">{{ block.settings.testimonial_author }}</h4>
+              {% if block.settings.testimonial_title != nil %}
+                <h3 class="testimonial__title">{{ block.settings.testimonial_title }}</h3>
+              {% endif %}
+              <p class="testimonial__author">{{ block.settings.testimonial_author }}</p>
               <section>
                 {{ block.settings.testimonial_body }}
               </section>
             </div>
           {% endfor %}
-        </section>
+        </div>
       {% endif %}
     </article>
   </div>
@@ -33,7 +35,7 @@ $(window).load(function() {
         items: 1,
         margin: 0,
         nav: true,
-        navText: ['<button class="fa fa-angle-left" aria-label="previous"></button>','<button class="fa fa-angle-right" aria-label="next"></button>'],
+        navText: ['<i class="fa fa-angle-left" aria-label="previous"></i>','<i class="fa fa-angle-right" aria-label="next"></i>'],
         slideBy: 1
       };
   $testimonialsCarousel.owlCarousel(testimonialsOwlOptions);
